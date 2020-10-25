@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1603598521 source:e:\projects\cb\graphics\main.cpp
+	<classes.h>
+
+1603599085 e:\projects\cb\graphics\\classes.h
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+
