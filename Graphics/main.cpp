@@ -4,10 +4,13 @@
 #include <classes.h>
 
 int main() {
+    Sphere roundy(50, 50, 50, 30);
+    Camera player(50, 50, 0, 0, 0, 0, 90, 60);
     bool world[100][100][100] = {{false}}; //world[z][x][y]
     bool plane[100][100] = {{false}};
     printToConsole(plane);
     for(int z = 0; z < 100; z++) {
+
         for(int x = 0; x < 100; x++) {
             plane[x][Hemisphere(x,z,50,50,50,30,1)] = true;
             plane[x][Hemisphere(x,z,50,50,50,30,-1)] = true;

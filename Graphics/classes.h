@@ -5,12 +5,35 @@
 
 class Sphere {
 public:
-    double h, k, l, radius;
-    Sphere (double, double, double, double);
+    float h, k, l, radius;
+    Sphere (float, float, float, float);
+    bool Inside
 };
 
-Sphere::Sphere(double setH, double setK, double setL, double setRadius) {
+Sphere::Sphere(float setH, float setK, float setL, float setRadius) {
     h = setH; k = setK; l = setL; radius = setRadius;
+}
+
+class Camera {
+public:
+    float x, y, z, xR, yR, zR, fovX, fovY;
+    Camera(float, float, float, float, float, float, float, float);
+};
+
+Camera::Camera(float a, float b, float c, float d, float e, float f, float g, float h) {
+    x = a; y = b; z = c; xR = d; yR = e; zR = f; fovX = g; fovY = h;
+}
+
+class Line {
+public:
+    float m, n, h, k;
+    Line (float, float, float, float)
+    float x(z) {return z * m + h;}
+    float y(z) {return z * n + k;}
+};
+
+Line::Line(float a, float b, float c, float d) {
+    m = a; n = b; h = c; k = d;
 }
 
 void printToConsole(bool plane[100][100]) {
