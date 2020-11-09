@@ -2,34 +2,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <Windows.h>
 
 class Sphere {
 public:
-    float h, k, l, radius;
+    float h, k, l, r;
     Sphere (float, float, float, float);
-    bool Inside
+    bool Inside(float x, float y, float z) {return (pow(x-h, 2) + pow(y-k, 2) + pow(z-l, 2)) < pow(r, 2);}
 };
 
 Sphere::Sphere(float setH, float setK, float setL, float setRadius) {
-    h = setH; k = setK; l = setL; radius = setRadius;
+    h = setH; k = setK; l = setL; r = setRadius;
 }
 
 class Camera {
 public:
     float x, y, z, xR, yR, zR, fovX, fovY;
-    Camera(float, float, float, float, float, float, float, float);
+    Camera(float, float, float, float, float, float, float);
 };
 
-Camera::Camera(float a, float b, float c, float d, float e, float f, float g, float h) {
-    x = a; y = b; z = c; xR = d; yR = e; zR = f; fovX = g; fovY = h;
+Camera::Camera(float a, float b, float c, float d, float e, float f, float g) {
+    x = a; y = b; z = c; xR = d; yR = e; fovX = f; fovY = g;
 }
 
 class Line {
 public:
     float m, n, h, k;
-    Line (float, float, float, float)
-    float x(z) {return z * m + h;}
-    float y(z) {return z * n + k;}
+    Line (float, float, float, float);
+    float x(float z) {return z * m + h;}
+    float y(float z) {return z * n + k;}
 };
 
 Line::Line(float a, float b, float c, float d) {
@@ -59,4 +60,8 @@ int Hemisphere(int x, int z, int h, int k, int l, int r, int mod) {
     } else {
         return 0;
     }
+}
+
+float Rad(float degrees) {
+    return degrees * (M_PI / 180);
 }
