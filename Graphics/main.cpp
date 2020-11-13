@@ -30,8 +30,8 @@ int main() {
             }
         }
     }
-    double fovX = 90; //camera will send 100 lines out at a range of -45 to 45 degrees
-    double fovY = 90; //camera will send 100 lines out at a range of -45 to 45 degrees
+    double fovX = 100; //camera will send 100 lines out at a range of -45 to 45 degrees
+    double fovY = 100; //camera will send 100 lines out at a range of -45 to 45 degrees
     double incrementX = fovX / 100;
     double incrementY = fovY / 100;
     while (true) {
@@ -41,7 +41,7 @@ int main() {
                 for (size_t z = 0; z < 100; z++) {
                     if (roundy.Inside(boop.x(z), boop.y(z), z) || circle1.Inside(boop.x(z), boop.y(z), z) || tiny.Inside(boop.x(z), boop.y(z), z)) {
                         view[j][i] = true;
-                        //std::cout << boop.x(z) << " " << boop.y(z) << std::endl;
+                        //std::cout << j << " " << i << std::endl;
                         z = 100;
                     } else {view[j][i] = false;}
                 }
@@ -51,27 +51,27 @@ int main() {
         printToConsole(view);
         if(GetKeyState('W') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
-            player.yR -= 1;
+            player.y -= 4;
         }
         if(GetKeyState('A') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
-            player.xR -= 1;
+            player.x -= 4;
         }
         if(GetKeyState('S') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
-            player.yR += 1;
+            player.y += 4;
         }
         if(GetKeyState('D') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
-            player.xR += 1;
+            player.x += 4;
         }
-        if(GetKeyState('F') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
+        if(GetKeyState('Q') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
             roundy.l += 5;
             circle1.l += 5;
             tiny.l += 5;
         }
-        if(GetKeyState('G') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
+        if(GetKeyState('E') & 0x8000/*Check if high-order bit is set (1 << 15)*/)
         {
             roundy.l -= 5;
             circle1.l -= 5;
